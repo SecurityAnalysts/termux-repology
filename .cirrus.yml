@@ -1,0 +1,20 @@
+container:
+  image: termux/package-builder:latest
+  cpu: 1
+  memory: 4
+
+gen_metadata_task:
+  timeout_in: 15m
+
+  environment:
+    BINTRAY_USERNAME: ENCRYPTED[ea44ab28c83dcc99749c5c1e614a60a1c079a21c51821280f2bbe5678d98746773865ef6a9be378f8bc289c6ca3a440c]
+    BINTRAY_API_KEY: ENCRYPTED[a1f8ae0f24297cda077bc3f30737b998a2d78fad7ed7b08bcaca9ca76a8160c57b5ba84945c7f3fbeb572520e0ef19bf]
+
+  prepare_script: |
+    git submodule update --init
+
+  scan_packages_script: |
+    ./generate-repology-metadata.sh > ./packages.json
+
+  publish_script:
+    ./bintray_publish.sh ./packages.json

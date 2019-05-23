@@ -1,0 +1,15 @@
+[submodule "repositories/game"]
+	path = repositories/game
+	url = https://github.com/termux/game-packages
+[submodule "repositories/main"]
+	path = repositories/main
+	url = https://github.com/termux/termux-packages
+[submodule "repositories/science"]
+	path = repositories/science
+	url = https://github.com/termux/science-packages
+[submodule "repositories/unstable"]
+	path = repositories/unstable
+	url = https://github.com/termux/unstable-packages
+[submodule "repositories/x11"]
+	path = repositories/x11
+	url = https://github.com/termux/x11-packages
